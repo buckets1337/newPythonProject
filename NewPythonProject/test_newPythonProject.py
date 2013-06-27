@@ -31,7 +31,7 @@ class TestFeatures(unittest.TestCase):
         self.assertEqual(map.y,5)
         self.assertEqual(map.blocked, False)
 
-    def test_Rect_init_params(self):
+    def test_Rect_center(self):
         rect = game.Rect(0, 0, 2, 2)
         center_x = (rect.x1 + rect.x2) / 2  #checks for center of rectangle
         center_y = (rect.y1 + rect.y2) / 2

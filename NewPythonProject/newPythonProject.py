@@ -94,15 +94,15 @@ class Map:      #a map object.  Represents the level map, must call new_map afte
                 break
         if not failed:  #not over max number of intersections, so clear to build
             self.create_room(new_room)
-            current_rooms.append(new_room)
         
     def create_room(self, room):  #creates rooms on the map
-        global current_map
+        global current_map, current_rooms
         #go through the tiles in the rectangle and make them passable
         for x in range(room.x1+1, room.x2):
             for y in range(room.y1+1, room.y2):
                 current_map[x][y].blocked = False
                 current_map[x][y].block_sight = False
+        current_rooms.append(room)
                 
     def connect_with_tunnels(self, old_room, new_room):   #connects an old room to a new room with a tunnel through their center points
         if len(current_rooms) == 1:
